@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Dogs by Age</title>
+</head>
+<body>
+    <label for="minAge">Enter the minimum age for the dog:</label>
+    <input type="number" id="minAge" name="minAge" min="0">
+    <button onclick="showOlderDogs()">Find Dogs</button>
+
+    <div id="dogInfo"></div>
+
+    <script>
+        const allDogs = [
+    {
+        dogName: "Abby",
+        breed: "SharPei",
+        age: 7
+    },
+    {
+        dogName: "Akino",
+        breed: "Husky",
+        age: 5
+    },
+    
+    {
+        dogName: "Addie",
+        breed: "Terrier",
+        age: 11
+    },
+    {
+        dogName: "Alexa",
+        breed: "German Shepherd",
+        age: 9
+    },
+
+    {
+        dogName: "Anthony",
+        breed:"Terrier",
+        age: 5
+    
+    },
+
+    {
+        dogName: "Aunt Millie",
+        breed: "Terrier",
+        age: 7
+    },
+    {
+        dogName: "Blackberry",
+        breed: "Pitbull",
+        age: 3
+    },
+
+    {
+        dogName: "Billy",
+        breed: " Pitbull",
+        age: 2
+    },
+
+    {
+        dogName: "Bentley",
+        breed: "Rottweiler",
+        age: 1
+
+    },
+
+    {
+        dogName: "Blue",
+        breed: "German Shepherd",
+        age: 2
+    },
+];
+
+function showOlderDogs() {
+
+    const minAge = parseInt(document.getElementById('minAge').value);
+    const selectedDogs = allDogs.filter(dog => dog.age > minAge);
+
+
+    const displayArea = document.getElementById('dogInfo');
+    displayArea.innerHTML = "";
+
+    selectedDogs.forEach(dog => {
+        const dogInfo = document.createElement('p');
+        dogInfo.textContent = `${dog.dogName} - Breed: ${dog.breed}, Age: ${dog.age}`;
+        displayArea.appendChild(dogInfo);
+    });
+}
+    </script>
+</body>
+</html>
